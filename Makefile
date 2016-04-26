@@ -13,7 +13,7 @@ mod_rpaf-2.0.c:
 
 install: mod_rpaf-2.0.la
 	test -f ${LIBEXECDIR}/mod_rpaf-2.0.so && mv ${LIBEXECDIR}/mod_rpaf-2.0.so{,.bak}; true
-	$(APXS) -i -n mod_rpaf-2.0.so mod_rpaf-2.0.la
+	$(APXS) -i -S LIBEXECDIR=$(DESTDIR)$$($(APXS) -q LIBEXECDIR)/ -n mod_rpaf-2.0.so mod_rpaf-2.0.la
 
 clean:
 	rm -rf *~ *.o *.so *.lo *.la *.slo *.loT .libs/ 
